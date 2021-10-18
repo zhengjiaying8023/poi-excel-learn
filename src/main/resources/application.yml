@@ -1,0 +1,21 @@
+#¼à¿ØÆ÷×¢½â
+#management:
+#  endpoints:
+#    default:
+#      enabled: true
+#    web:
+#      enabled: true
+#      exposure:
+#        include: '*'
+#  endpoint:
+#    health:
+#      show-details: always
+#  env:
+#    enabled: true
+#  info:
+#    git:
+#      mode: full
+server:
+  port: 8080
+  servlet:
+    context-path: /api
