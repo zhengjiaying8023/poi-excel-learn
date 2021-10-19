@@ -11,20 +11,27 @@ import springfox.documentation.service.ApiInfo;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 
+/**
+ * @author +1
+ */
 @Configuration
 @EnableOpenApi
 public class SwaggerConfig {
 
+    /*
+          关于swagger3的配置引入
+           1、在pom中引入swagger3的依赖
+           2、建SwaggerConfig配置文件，文件上加@Configuration和@EnableOpenApi
+           3、创建controller的示例后，浏览器中查看http://localhost:8080/api/swagger-ui/
+           其中api---是yml文件中配置的后缀
+   */
     @Bean
-    public Docket createRestApi(){
+    public Docket createRestApi() {
         return new Docket(DocumentationType.OAS_30) //设置OpenApi3.0的规范
                 .apiInfo(apiInfo())  //配置项目基本信息
                 .select()            //选择那些路径和api会生成document
-                //扫描的路径包，用于指定路径接口扫描设置
                 //扫描有注解的api
-//                .apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class))
-                //扫描地址下的文件
-                .apis(RequestHandlerSelectors.basePackage("com.grace.learn.controller"))
+                .apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class))
                 //对所有路径进行监控
                 .paths(PathSelectors.any())
                 .build();
