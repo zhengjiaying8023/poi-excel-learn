@@ -19,11 +19,10 @@ import java.nio.charset.StandardCharsets;
 @RequestMapping("easy/poi")
 public class EasyPoiExcelController {
 
-
     @Autowired
     private EasyPoiService easyPoiService;
 
-    @ApiOperation("excel")
+    @ApiOperation("excel大数据量导出")
     @GetMapping("big")
     @ResponseBody
     public void exportBig(HttpServletResponse response) throws IOException {
@@ -35,7 +34,7 @@ public class EasyPoiExcelController {
         easyPoiService.exportBigExcel(response);
     }
 
-    @ApiOperation("excel")
+    @ApiOperation("excel小数据量导出")
     @GetMapping("small")
     @ResponseBody
     public void exportSmall(HttpServletResponse response) throws IOException {
