@@ -21,7 +21,10 @@ public class SwaggerConfig {
                 .apiInfo(apiInfo())  //配置项目基本信息
                 .select()            //选择那些路径和api会生成document
                 //扫描的路径包，用于指定路径接口扫描设置
-                .apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class))
+                //扫描有注解的api
+//                .apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class))
+                //扫描地址下的文件
+                .apis(RequestHandlerSelectors.basePackage("com.grace.learn.controller"))
                 //对所有路径进行监控
                 .paths(PathSelectors.any())
                 .build();

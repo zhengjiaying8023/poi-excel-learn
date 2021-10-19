@@ -6,14 +6,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@Api(tags = "首页信息管理", value = "测试")
+@Api(tags = "easy-poi",value ="easy-poi学习")
 @RestController
-@RequestMapping("/home")
-public class HomeController {
+@RequestMapping("easy/poi")
+public class EasyPoiExcelController {
 
     @ApiOperation("首页详情")
     @GetMapping("/home")
     public String home() {
         return "true---成功";
     }
+
 }
